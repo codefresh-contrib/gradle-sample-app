@@ -1,5 +1,7 @@
 package io.codefresh.gradleexample;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +13,7 @@ public class GradleExampleApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		assertEquals("Expected correct message","Hello World","Hello "+"World");
 	}
 
 }
