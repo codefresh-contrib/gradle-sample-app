@@ -1,7 +1,9 @@
 # Gradle Docker Codefresh example
 
 This is an example Java application that uses Spring Boot 2, Gradle and Docker
-It is compiled using Codefresh
+It is compiled using Codefresh.
+
+If you are looking for Maven, then see this [example](https://github.com/codefresh-contrib/spring-boot-2-sample-app)
 
 ## Create a multi-stage docker image
 
@@ -24,7 +26,7 @@ docker build . -t my-app -f Dockerfile.only-package
 docker run -p 8080:8080 my-app
 ```
 
-And then visit http://localhost:8080 in your project
+And then visit http://localhost:8080 in your browser.
 
 ## To use this project in Codefresh
 
