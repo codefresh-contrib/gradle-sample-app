@@ -9,7 +9,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class GradleExampleApplicationTests {
+public class GradleExampleApplicationTest {
 
 	@Test
 	public void contextLoads() {
