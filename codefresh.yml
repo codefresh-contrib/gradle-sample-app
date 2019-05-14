@@ -1,0 +1,20 @@
+version: '1.0'
+stages:
+  - prepare
+  - build
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: prepare
+    type: git-clone
+    repo: 'codefresh-contrib/gradle-sample-app'
+    revision: multi-stage-docker
+    git: github
+  BuildingDockerImage:
+    title: Building Docker Image
+    stage: build
+    type: build
+    image_name: gradle-sample-app
+    working_directory: ./
+    tag: 'multi-stage'
+    dockerfile: Dockerfile

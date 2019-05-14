@@ -7,28 +7,26 @@ It is compiled using Codefresh
 
 To compile and package using Docker multi-stage builds
 
-```
+```bash
 docker build . -t my-app
 ```
 
 ## Create a Docker image packaging an existing jar
 
-```
+```bash
 ./gradlew build
 docker build . -t my-app -f Dockerfile.only-package
 ```
 
 ## To run the docker image
 
-```
+```bash
 docker run -p 8080:8080 my-app
 ```
 
 And then visit http://localhost:8080 in your project
 
-The Dockerfile also has a healthcheck
-
-## To use this project in Codefresh 
+## To use this project in Codefresh
 
 There is also a [codefresh.yml](codefresh.yml) for easy usage with the [Codefresh](codefresh.io) CI/CD platform.
 
