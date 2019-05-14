@@ -8,7 +8,7 @@ steps:
     stage: prepare
     type: git-clone
     repo: 'codefresh-contrib/gradle-sample-app'
-    revision: multi-stage-docker
+    revision: master
     git: github
   BuildingDockerImage:
     title: Building Docker Image
