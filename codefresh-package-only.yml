@@ -1,0 +1,34 @@
+version: '1.0'
+stages:
+  - prepare
+  - test
+  - package
+  - build
+steps:
+  main_clone:
+    title: Cloning main repository...
+    stage: prepare
+    type: git-clone
+    repo: 'codefresh-contrib/gradle-sample-app'
+    revision: master
+    git: github
+  MyUnitTests:
+    title: Compile/Unit test
+    stage: test
+    image: gradle:4.7.0-jdk8-alpine
+    commands:
+      - gradle test --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle
+  BuildMyJar:
+    title: Packaging Jar file
+    stage: package
+    image: gradle:4.7.0-jdk8-alpine
+    commands:
+     - gradle build --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle
+  MyAppDockerImage:
+    title: Building Docker Image
+    type: build
+    stage: build
+    image_name: gradle-sample-app
+    working_directory: ./
+    tag: 'non-multi-stage'
+    dockerfile: Dockerfile.only-package
