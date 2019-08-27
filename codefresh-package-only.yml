@@ -17,13 +17,13 @@ steps:
     stage: test
     image: gradle:4.7.0-jdk8-alpine
     commands:
-      - gradle test --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle
+      - gradle test --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle -Dmaven.repo.local=/codefresh/volume/m2
   BuildMyJar:
     title: Packaging Jar file
     stage: package
     image: gradle:4.7.0-jdk8-alpine
     commands:
-     - gradle build --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle
+     - gradle build --no-daemon --build-cache --gradle-user-home=/codefresh/volume/.gradle -Dmaven.repo.local=/codefresh/volume/m2
   MyAppDockerImage:
     title: Building Docker Image
     type: build
