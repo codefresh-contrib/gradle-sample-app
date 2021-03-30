@@ -26,10 +26,6 @@ jobs:
    
     - name: Build with Gradle
       run: ./gradlew build
-    
-    steps:
-  - uses: actions/checkout@v2
-    name: Check out code
 
   - uses: mr-smithers-excellent/docker-build-push@v5
     name: Build & push Docker image
